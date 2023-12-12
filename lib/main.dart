@@ -11,58 +11,68 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(20),
+        child: AppBar(
+          backgroundColor: Color.fromARGB(255, 210, 15, 1),
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 200,
-                child: Image.asset('assets/images/logo.png'),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Email address'),
-              ),
-              SizedBox(height: 16),
-              TextField(
-                decoration: InputDecoration(labelText: 'Password'),
-                obscureText: true,
-              ),
-              SizedBox(height: 32),
-              Row(
-                children: [
-                  Checkbox(
-                    value: false,
-                    onChanged: (value) {},
-                  ),
-                  Text('利用規約に同意する'),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  minimumSize: Size(320, 50), //ボタンの幅と高さ
-                  backgroundColor: const Color.fromARGB(255, 210, 15, 1),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Spacer(),
+            //ロゴ
+            Container(
+              width: (MediaQuery.of(context).size.width) * 0.7,
+              child: Image.asset('assets/images/logo.png'),
+            ),
+            // メールフォーム
+            TextField(
+              decoration: InputDecoration(labelText: 'Email address'),
+            ),
+            // パスワードフォーム
+            SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(labelText: 'Password'),
+              obscureText: true,
+            ),
+            SizedBox(height: 32),
+            Row(
+              children: [
+                Checkbox(
+                  value: false,
+                  onChanged: (value) {},
                 ),
-                child: Text('Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                    )),
+                Text('利用規約に同意する'),
+              ],
+            ),
+            // ログインボタン
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                minimumSize: Size(320, 50), //ボタンの幅と高さ
+                backgroundColor: const Color.fromARGB(255, 210, 15, 1),
               ),
-            ],
-          ),
+              child: Text('サインイン',
+                  style: TextStyle(
+                    color: Colors.white,
+                  )),
+            ),
+            Spacer(),
+            Container(
+              width: (MediaQuery.of(context).size.width),
+              child: Image.asset('assets/images/cloud_footer.png'),
+            ),
+          ],
         ),
       ),
     );
@@ -160,7 +170,7 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-// 通知ボタンがあるAppBar, ログインページに戻る
+// 通知ボタンがあるAppBar, 戻るボタン削除済み
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
@@ -243,6 +253,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// タブバーの遷移系
 class _MyHomePageState extends State<MyHomePage> {
   var selectedIndex = 0;
   late ExchangePage exchangePage;
@@ -256,6 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Widget page;
+    // タブバーの遷移先
     switch (selectedIndex) {
       case 0:
         page = GeneratorPage();
@@ -290,7 +302,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: CustomAppBar(), //AppBar
-
+      // ラベルの指定
       body: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth < 450) {
@@ -303,21 +315,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     items: [
                       BottomNavigationBarItem(
                         icon: Icon(Icons.home),
-                        label: 'Home',
+                        label: 'ホーム',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.currency_exchange),
-                        label: 'exchange',
+                        label: '交換',
                         backgroundColor:
                             const Color.fromARGB(255, 250, 246, 246),
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.access_time),
-                        label: 'Time',
+                        label: '営業時間',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.settings),
-                        label: 'Settings',
+                        label: '設定',
                       ),
                     ],
                     currentIndex: selectedIndex,
@@ -378,7 +390,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// 追加: 新しいページ：ホームページ
+// ホームページ（HomePage）
 class GeneratorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
