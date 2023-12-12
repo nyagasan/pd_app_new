@@ -20,8 +20,9 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                child: Image.asset('logo.png'),
+              Container(
+                width: 200,
+                child: Image.asset('assets/images/logo.png'),
               ),
               TextField(
                 decoration: InputDecoration(labelText: 'Email address'),
