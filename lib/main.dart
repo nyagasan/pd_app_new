@@ -120,6 +120,7 @@ class NotificationPage extends StatelessWidget {
   }
 }
 
+// 通知ボタンがないAppBar, ホームに戻る
 class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
@@ -159,6 +160,7 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
+// 通知ボタンがあるAppBar, ログインページに戻る
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
@@ -182,7 +184,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       child: AppBar(
-        title: Text('aaaaaa'),
+        title: Image.asset(
+          'assets/images/appbar_logo.png',
+          height: 30,
+        ),
         backgroundColor: Color.fromARGB(255, 210, 15, 1),
         //あってるかわからない↓
         actions: [
@@ -198,13 +203,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             iconSize: 35,
           ),
         ],
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => LoginPage()));
-          },
-        ),
+        automaticallyImplyLeading: false,
       ),
     );
   }
