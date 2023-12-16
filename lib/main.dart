@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -240,11 +239,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAppState extends ChangeNotifier {
-  //アプリの状態を管理
-  var current = WordPair.random();
-  var history = <WordPair>[];
-
-  GlobalKey? historyListKey;
 }
 
 class MyHomePage extends StatefulWidget {
