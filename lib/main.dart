@@ -134,7 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     exchangePage = ExchangePage(); //ExchangePageのインスタンスを作成
   }
-
+  // ここまさかのSPAでした。なんでやねん。
+  // ToDo: 気が向いたらExchangePageを入れ子にしたSccafoldを作る
   @override
   Widget build(BuildContext context) {
     Widget page;
