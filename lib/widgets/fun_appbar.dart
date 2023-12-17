@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../main.dart';
 
@@ -37,7 +36,7 @@ class FunAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SettingPage()),
+                MaterialPageRoute(builder: (context) => NotificationPage()),
               );
             },
             color: Colors.white,
