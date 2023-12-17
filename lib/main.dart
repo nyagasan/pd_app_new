@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'pages/login_page.dart';
 import 'widgets/fun_appbar.dart';
 
@@ -104,22 +103,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'aaaaaa',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: Color.fromARGB(255, 60, 147, 169)),
-        ),
-        home: LoginPage(),
+    return MaterialApp(
+      title: 'aaaaaa',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 60, 147, 169)),
       ),
+      home: LoginPage(),
     );
   }
 }
 
-class MyAppState extends ChangeNotifier {}
+// class MyAppState extends ChangeNotifier {}
 
 class MyHomePage extends StatefulWidget {
   //アプリのホームページ表示
@@ -267,8 +263,6 @@ class _MyHomePageState extends State<MyHomePage> {
 class GeneratorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
