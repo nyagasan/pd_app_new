@@ -1,4 +1,3 @@
-import 'scaffold_exchange_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,6 +7,8 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // 円形ポイント表示
+          Spacer(),
           Stack(
             alignment: Alignment.center,
             children: [
@@ -45,7 +46,14 @@ class HomePage extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 150),
+                        Text(
+                          '5',
+                          style: TextStyle(
+                            fontSize: 120,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
                         Text(
                           'Rank 1',
                           style: TextStyle(
@@ -60,9 +68,8 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-
-          SizedBox(height: 50),
-
+          Spacer(),
+          // ご利用可能ポイント
           //上の線
           Container(
             height: 1,
@@ -70,25 +77,21 @@ class HomePage extends StatelessWidget {
             color: Colors.black,
           ),
           Padding(
-              padding: const EdgeInsets.only(
-            top: 20,
-          )),
-          Text('ご利用可能ポイント', style: Theme.of(context).textTheme.headline4),
-          SizedBox(height: 20),
-
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            child:
+                Text('ご利用可能ポイント', style: Theme.of(context).textTheme.headline4),
+          ),
           //下の線
           Container(
             height: 1,
             width: 350,
             color: Colors.black,
           ),
-
-          SizedBox(height: 50),
-
+          Spacer(),
+          // 交換ボタン
           ElevatedButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ScaffoldExchangePage()));
+              Navigator.pushNamed(context, '/scaffold_exchange');
             },
             child: Text('交換する',
                 style: TextStyle(
@@ -103,6 +106,7 @@ class HomePage extends StatelessWidget {
               backgroundColor: const Color.fromARGB(255, 210, 15, 1),
             ),
           ),
+          Spacer(),
         ],
       ),
     );

@@ -21,26 +21,34 @@ class LoginPage extends StatelessWidget {
               width: (MediaQuery.of(context).size.width) * 0.7,
               child: Image.asset('assets/images/logo.png'),
             ),
-            // メールフォーム
-            TextField(
-              decoration: InputDecoration(labelText: 'Email address'),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children: [
+                  // メールフォーム
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Email address'),
+                  ),
+                  // パスワードフォーム
+                  SizedBox(height: 16),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Password'),
+                    obscureText: true,
+                  ),
+                  SizedBox(height: 32),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: false,
+                        onChanged: (value) {},
+                      ),
+                      Text('利用規約に同意する'),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            // パスワードフォーム
-            SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(labelText: 'Password'),
-              obscureText: true,
-            ),
-            SizedBox(height: 32),
-            Row(
-              children: [
-                Checkbox(
-                  value: false,
-                  onChanged: (value) {},
-                ),
-                Text('利用規約に同意する'),
-              ],
-            ),
+
             // ログインボタン
             ElevatedButton(
               onPressed: () {
