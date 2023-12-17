@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'pages/login_page.dart';
+import 'widgets/fun_appbar.dart';
 
 void main() {
   runApp(MyApp());
@@ -98,53 +99,8 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
 }
 
 // 通知ボタンがあるAppBar, 戻るボタン削除済み
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  @override
-  Size get preferredSize => const Size.fromHeight(56.0);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey[300],
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white,
-            offset: Offset(-5, -5),
-            blurRadius: 15,
-          ),
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            offset: Offset(5, 5),
-            blurRadius: 15,
-          )
-        ],
-      ),
-      child: AppBar(
-        title: Image.asset(
-          'assets/images/appbar_logo.png',
-          height: 30,
-        ),
-        backgroundColor: Color.fromARGB(255, 210, 15, 1),
-        //あってるかわからない↓
-        actions: [
-          IconButton(
-            icon: Icon(Icons.notification_add),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => NotificationPage()),
-              );
-            },
-            color: Colors.white,
-            iconSize: 35,
-          ),
-        ],
-        automaticallyImplyLeading: false,
-      ),
-    );
-  }
-}
+// ignore: use_key_in_widget_constructors
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -223,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     return Scaffold(
-      appBar: CustomAppBar(), //AppBar
+      appBar: FunAppBar(), //AppBar
       // ラベルの指定
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -234,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 SafeArea(
                   bottom: false, //底部の余白をなくす
                   child: BottomNavigationBar(
-                    items: [
+                    items: const [
                       BottomNavigationBarItem(
                         icon: Icon(Icons.home),
                         label: 'ホーム',
@@ -243,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(Icons.currency_exchange),
                         label: '交換',
                         backgroundColor:
-                            const Color.fromARGB(255, 250, 246, 246),
+                            Color.fromARGB(255, 250, 246, 246),
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.access_time),
