@@ -1,3 +1,5 @@
+
+// こんな感じになったらいいなのイメージ
 const USER_SAMPLE_DATA = {
   "id": "11111-1111-1111-1111",
   "name": "John Flower",
