@@ -3,7 +3,7 @@ import 'package:pd_app_new/pages/notification_page.dart';
 import 'package:pd_app_new/pages/scaffold_exchange_page.dart';
 import 'pages/login_page.dart';
 import 'pages/home_page.dart';
-import 'pages/StoreHoursPage.dart';
+import 'pages/store_hours_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/exchange_page.dart';
 import 'pages/confirm_page.dart';

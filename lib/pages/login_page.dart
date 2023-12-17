@@ -25,6 +25,7 @@ class LoginPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
+                  // ToDo: 送信メソッドの追加
                   // メールフォーム
                   TextField(
                     decoration: InputDecoration(labelText: 'Email address'),

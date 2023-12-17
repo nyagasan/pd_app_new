@@ -46,6 +46,8 @@ class HomePage extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
+                        // ToDo：ここにポイント数を表示する
+                        // 仮で5を表示
                         Text(
                           '5',
                           style: TextStyle(
