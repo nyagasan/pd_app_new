@@ -7,6 +7,7 @@ void main() {
   runApp(MyApp());
 }
 
+// 設定ページだった
 class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -82,14 +83,14 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       child: AppBar(
-        title: Text('aaaaaa'),
+        title: Text('交換'),
         backgroundColor: Color.fromARGB(255, 210, 15, 1),
         //あってるかわからない↓
         actions: [],
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pushReplacement(
+            Navigator.pop(
                 context, MaterialPageRoute(builder: (context) => MyHomePage()));
           },
         ),
@@ -97,10 +98,6 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-
-// 通知ボタンがあるAppBar, 戻るボタン削除済み
-// ignore: use_key_in_widget_constructors
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -122,8 +119,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyAppState extends ChangeNotifier {
-}
+class MyAppState extends ChangeNotifier {}
 
 class MyHomePage extends StatefulWidget {
   //アプリのホームページ表示
@@ -198,8 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       BottomNavigationBarItem(
                         icon: Icon(Icons.currency_exchange),
                         label: '交換',
-                        backgroundColor:
-                            Color.fromARGB(255, 250, 246, 246),
+                        backgroundColor: Color.fromARGB(255, 250, 246, 246),
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.access_time),
