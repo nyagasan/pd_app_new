@@ -260,8 +260,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-
 // 追加: 新しいページ：交換ページ
 class ExchangePage extends StatelessWidget {
   @override
