@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
 
 //ログインページ内容
 class LoginPage extends StatelessWidget {
