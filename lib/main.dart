@@ -127,7 +127,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-// タブバーの遷移系
+// ページの状態管理
 class _MyHomePageState extends State<MyHomePage> {
   var selectedIndex = 0;
   late ExchangePage exchangePage;
