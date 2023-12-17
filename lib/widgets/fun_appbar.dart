@@ -37,7 +37,7 @@ class FunAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => NotificationPage()),
+                MaterialPageRoute(builder: (context) => SettingPage()),
               );
             },
             color: Colors.white,
