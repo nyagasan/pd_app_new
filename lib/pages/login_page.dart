@@ -45,10 +45,7 @@ class LoginPage extends StatelessWidget {
             // ログインボタン
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()),
-                );
+                Navigator.pushReplacementNamed(context, '/home');
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

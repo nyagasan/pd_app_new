@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
+import 'package:pd_app_new/widgets/red_appbar.dart';
+
 //確認ページ
 class ConfirmPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [],
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => MyHomePage()));
-          },
-        ),
-      ),
+      appBar: RedAppBar('交換確認'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(

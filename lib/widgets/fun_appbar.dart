@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
 
 class FunAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -34,10 +33,7 @@ class FunAppBar extends StatelessWidget implements PreferredSizeWidget {
           IconButton(
             icon: Icon(Icons.notification_add),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => NotificationPage()),
-              );
+              Navigator.pushNamed(context, '/notification');
             },
             color: Colors.white,
             iconSize: 35,

@@ -1,4 +1,4 @@
-import '../main.dart';
+import 'scaffold_exchange_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ExchangePage2()));
+                  MaterialPageRoute(builder: (context) => ScaffoldExchangePage()));
             },
             child: Text('交換する',
                 style: TextStyle(
