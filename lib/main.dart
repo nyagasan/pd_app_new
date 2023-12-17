@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
 import 'pages/home_page.dart';
 import 'pages/StoreHoursPage.dart';
+import 'pages/settings_page.dart';
 
 import 'widgets/fun_appbar.dart';
 
@@ -9,60 +10,12 @@ void main() {
   runApp(MyApp());
 }
 
-// 設定ページ
-class SettingPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar2(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 500,
-              height: 200,
-              color: Colors.blue,
-              child: Center(child: Text('aaaaaa')),
-            ),
-            Padding(
-                padding: const EdgeInsets.only(
-              top: 20,
-            )),
-            Text('John Flower', style: TextStyle(fontSize: 30)),
-            Padding(
-                padding: const EdgeInsets.only(
-              top: 20,
-            )),
-            Container(
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 255, 255, 255),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(-5, -5),
-                    blurRadius: 15,
-                  ),
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    offset: Offset(5, 5),
-                    blurRadius: 15,
-                  ),
-                ],
-              ),
-              height: 350,
-              width: 350,
-              child: Center(child: Text('aaaaaa')),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 // 通知ボタンがないAppBar, ホームに戻る
-class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
+class RedAppBar extends StatelessWidget implements PreferredSizeWidget {
+  RedAppBar(this.title);
+  final String title;
+
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
   @override
@@ -85,12 +38,18 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       child: AppBar(
-        title: Text('交換'),
+        title: Text(
+          title,
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Color.fromARGB(255, 210, 15, 1),
         //あってるかわからない↓
         actions: [],
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.pop(
                 context, MaterialPageRoute(builder: (context) => MyHomePage()));
@@ -127,13 +86,7 @@ class MyHomePage extends StatefulWidget {
 // ページの状態管理
 class _MyHomePageState extends State<MyHomePage> {
   var selectedIndex = 0;
-  late ExchangePage exchangePage;
-
   @override
-  void initState() {
-    super.initState();
-    exchangePage = ExchangePage(); //ExchangePageのインスタンスを作成
-  }
   // ここまさかのSPAでした。なんでやねん。
   // ToDo: 気が向いたらExchangePageを入れ子にしたSccafoldを作る
   @override
@@ -261,7 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// 追加: 新しいページ：交換ページ
+// 交換ページ
 class ExchangePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -476,161 +429,165 @@ class ExchangePage extends StatelessWidget {
   }
 }
 
-// 追加: 新しいページ：設定ページ
-class SettingsPage extends StatelessWidget {
+// お知らせページ
+class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(),
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(-5, -5),
-                  blurRadius: 15,
-                ),
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  offset: Offset(5, 5),
-                  blurRadius: 15,
-                ),
-              ],
+    return Scaffold(
+      appBar: RedAppBar('お知らせ'),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, -5),
+                    blurRadius: 15,
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(5, 5),
+                    blurRadius: 15,
+                  ),
+                ],
+              ),
+              height: 80,
+              width: 300,
+              child:
+                  Center(child: Text('お知らせ', style: TextStyle(fontSize: 25))),
             ),
-            height: 80,
-            width: 300,
-            child: Center(child: Text('お知らせ', style: TextStyle(fontSize: 25))),
           ),
-        ),
-        Padding(
-          //一つ目
-          padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(-5, -5),
-                  blurRadius: 15,
-                ),
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  offset: Offset(5, 5),
-                  blurRadius: 15,
-                ),
-              ],
+          Padding(
+            //一つ目
+            padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, -5),
+                    blurRadius: 15,
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(5, 5),
+                    blurRadius: 15,
+                  ),
+                ],
+              ),
+              height: 100,
+              child: Center(child: Text('aaaaaa')),
             ),
-            height: 100,
-            child: Center(child: Text('aaaaaa')),
           ),
-        ),
-        Padding(
-          //二つ目
-          padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(-5, -5),
-                  blurRadius: 15,
-                ),
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  offset: Offset(5, 5),
-                  blurRadius: 15,
-                ),
-              ],
+          Padding(
+            //二つ目
+            padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, -5),
+                    blurRadius: 15,
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(5, 5),
+                    blurRadius: 15,
+                  ),
+                ],
+              ),
+              height: 100,
+              child: Center(child: Text('aaaaaa')),
             ),
-            height: 100,
-            child: Center(child: Text('aaaaaa')),
           ),
-        ),
-        Padding(
-          //三つ目
-          padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(-5, -5),
-                  blurRadius: 15,
-                ),
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  offset: Offset(5, 5),
-                  blurRadius: 15,
-                ),
-              ],
+          Padding(
+            //三つ目
+            padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, -5),
+                    blurRadius: 15,
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(5, 5),
+                    blurRadius: 15,
+                  ),
+                ],
+              ),
+              height: 100,
+              child: Center(child: Text('aaaaaa')),
             ),
-            height: 100,
-            child: Center(child: Text('aaaaaa')),
           ),
-        ),
-        Padding(
-          //四つ目
-          padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(-5, -5),
-                  blurRadius: 15,
-                ),
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  offset: Offset(5, 5),
-                  blurRadius: 15,
-                ),
-              ],
+          Padding(
+            //四つ目
+            padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, -5),
+                    blurRadius: 15,
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(5, 5),
+                    blurRadius: 15,
+                  ),
+                ],
+              ),
+              height: 100,
+              child: Center(child: Text('aaaaaa')),
             ),
-            height: 100,
-            child: Center(child: Text('aaaaaa')),
           ),
-        ),
-        Padding(
-          //五つ目
-          padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(-5, -5),
-                  blurRadius: 15,
-                ),
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  offset: Offset(5, 5),
-                  blurRadius: 15,
-                ),
-              ],
+          Padding(
+            //五つ目
+            padding: const EdgeInsets.only(top: 40, right: 20, left: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 255, 255, 255),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, -5),
+                    blurRadius: 15,
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(5, 5),
+                    blurRadius: 15,
+                  ),
+                ],
+              ),
+              height: 100,
+              child: Center(child: Text('aaaaaa')),
             ),
-            height: 100,
-            child: Center(child: Text('aaaaaa')),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
 
-// 交換ページ（ホームから飛べるページ）
+// Scaffold交換ページ
 class ExchangePage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar2(),
+      appBar: RedAppBar('交換'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -684,7 +641,7 @@ class ExchangePage2 extends StatelessWidget {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ReallyPage()),
+                                    builder: (context) => ConfirmPage()),
                               );
                             },
                             child: Text('交換',
@@ -853,7 +810,7 @@ class ExchangePage2 extends StatelessWidget {
 }
 
 //確認ページ
-class ReallyPage extends StatelessWidget {
+class ConfirmPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
