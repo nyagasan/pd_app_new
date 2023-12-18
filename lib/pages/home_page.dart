@@ -109,6 +109,22 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Spacer(),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('ポイント付与',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                )),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              minimumSize: Size(320, 60), //ボタンの幅と高さ
+              backgroundColor: Color.fromARGB(255, 78, 9, 4),
+            ),
+          ),
+          Spacer(),
         ],
       ),
     );
