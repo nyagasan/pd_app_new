@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import '../model/exchange_model.dart';
+import './success_modal.dart';
+import 'package:provider/provider.dart';
+import '../model/user_model.dart';
 
 //確認ページ
 class ConfirmModal extends StatelessWidget {
   final ExchangeData exchangeData;
 
   ConfirmModal({required this.exchangeData});
-  
 
   @override
   Widget build(BuildContext context) {
     // 画面サイズを取得
     var screenSize = MediaQuery.of(context).size;
+    final user = Provider.of<User>(context);
 
     return Dialog(
       shape: RoundedRectangleBorder(
@@ -54,7 +57,18 @@ class ConfirmModal extends StatelessWidget {
 
             // はい・いいえボタン
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                exchangeData.exchange(user);
+                showGeneralDialog(
+                  context: context,
+                  barrierColor: Colors.black.withOpacity(.3),
+                  barrierDismissible: true,
+                  barrierLabel: 'Dialogを閉じる',
+                  pageBuilder: (_, __, ___) {
+                    return SuccessModal();
+                  },
+                );
+              },
               child: Text('はい',
                   style: TextStyle(
                     color: Colors.white,

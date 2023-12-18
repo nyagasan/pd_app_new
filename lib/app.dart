@@ -13,9 +13,11 @@ import 'pages/settings_page.dart';
 import 'pages/exchange_page.dart';
 import 'widgets/confirm_modal.dart';
 import 'pages/splash.dart';
+
 // Widget系のインポート
 import 'widgets/fun_appbar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'widgets/success_modal.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -56,6 +58,7 @@ class MyApp extends StatelessWidget {
           '/storehours': (context) => StoreHoursPage(),
           '/settings': (context) => SettingsPage(),
           '/notification': (context) => NotificationPage(),
+          '/success': (context) => SuccessModal(),
         },
       ),
     );

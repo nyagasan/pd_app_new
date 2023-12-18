@@ -2,15 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:pd_app_new/widgets/confirm_modal.dart';
 import '../model/exchange_model.dart';
 import 'package:provider/provider.dart';
+import '../model/user_model.dart';
 
 // 交換商品カード
 class ExchangeItemCard extends StatelessWidget {
   final ExchangeData exchangeData;
+  final int userPoints; // ユーザーポイント
 
-  ExchangeItemCard({required this.exchangeData});
+  // 目標勾配を計算する関数
+  String pointsNeededForExchange(int userPoints) {
+    if (userPoints >= exchangeData.point) {
+      // 引換可能な場合
+      return '';
+    } else {
+      // 引換不可な場合
+      int pointsNeeded = exchangeData.point - userPoints;
+      return 'あと$pointsNeeded pt';
+    }
+  }
+
+  ExchangeItemCard({
+    required this.exchangeData,
+    required this.userPoints,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+    final userPoints = user.point;
+
     return Container(
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 239, 238, 238),
@@ -65,19 +85,31 @@ class ExchangeItemCard extends StatelessWidget {
                     maxLines: 3,
                   ),
                   Spacer(),
+                  Text(
+                    exchangeData.point.toString() +
+                        'pt ' +
+                        pointsNeededForExchange(userPoints),
+                    style: TextStyle(fontSize: 16),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                  ),
+                  Spacer(),
                   ElevatedButton(
-                    onPressed: () {
-                      // 交換処理を実装、Modalを展開
-                      showGeneralDialog(
-                        context: context,
-                        barrierColor: Colors.black.withOpacity(.3),
-                        barrierDismissible: true,
-                        barrierLabel: 'Close', // アクセシビリティ用のラベル
-                        pageBuilder: (_, __, ___) {
-                          return ConfirmModal(exchangeData: exchangeData);
-                        },
-                      );
-                    },
+                    onPressed: userPoints >= exchangeData.point
+                        ? () {
+                            // ポイント残高を参照、Modalを展開
+                            showGeneralDialog(
+                              context: context,
+                              barrierColor: Colors.black.withOpacity(.3),
+                              barrierDismissible: true,
+                              barrierLabel: 'Close', // アクセシビリティ用のラベル
+                              pageBuilder: (_, __, ___) {
+                                return ConfirmModal(
+                                    exchangeData: exchangeData,);
+                              },
+                            );
+                          }
+                        : null,
                     child: Text('交換',
                         style: TextStyle(
                           color: Colors.white,
