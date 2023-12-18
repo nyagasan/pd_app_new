@@ -1,6 +1,5 @@
 import './user_model.dart';
 
-// 交換商品のクラスを定義
 class ExchangeData {
   // 商品名
   late String name;
@@ -13,11 +12,13 @@ class ExchangeData {
   // 商品の交換先
   late String exchangeTo;
 
-  bool canExchange (User user) {
+// 交換できるかどうかを判定するメソッド
+  bool canExchange(User user) {
     return user.point >= this.point;
   }
 
-  void exchange (User user) {
+// 交換するメソッド
+  void exchange(User user) {
     if (!canExchange(user)) {
       throw Exception('ポイントが足りません');
     }
@@ -51,7 +52,7 @@ List<ExchangeData> exchangeDataList = [
     ..image = 'assets/images/4.png'
     ..point = 20
     ..exchangeTo = 'Yショップ アクア店',
-    ExchangeData()
+  ExchangeData()
     ..name = 'KITランチ'
     ..description = '商品の説明4'
     ..image = 'assets/images/4.png'
