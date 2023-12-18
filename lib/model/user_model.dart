@@ -1,11 +1,15 @@
-// こんな感じになったらいいなのイメージ
-class User {
+// ユーザーモデルの定義
+import 'package:flutter/material.dart';
+
+// ユーザーモデル、changeNotifierは変更を通知するためのもの
+class User with ChangeNotifier{
   String id;
   String name;
   String email;
   String password;
   int point;
   int rank;
+
 
   User({
     required this.id,
@@ -18,6 +22,7 @@ class User {
 
   void addPoint() {
     point += 1;
+    notifyListeners();
   }
 }
 
