@@ -1,15 +1,19 @@
-// 最小構成で、Userクラスの定義と、Userクラスにポイントを追加する関数を定義
+// こんな感じになったらいいなのイメージ
 class User {
-  String id;
-  int points;
+  late String id;
+  late String name;
+  late String email;
+  late String password;
+  late int point;
+  late int rank;
 
-  User({required this.id, this.points = 0});
+  User({required this.id, this.point = 0});
 
   void addPoint() {
-    points += 1;
+    point += 1;
   }
 }
 
 void addPointToUser(User user) {
-  user.addPoint();
+  user.point += 1;
 }
