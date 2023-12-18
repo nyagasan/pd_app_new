@@ -34,28 +34,28 @@ List<ExchangeData> exchangeDataList = [
     ..id = '1'
     ..name = 'アイスクリーム'
     ..description = 'アイスクリーム'
-    ..image = 'assets/images/exc_item1.png'
+    ..image = 'assets/images/exc_item1.jpg'
     ..point = 10
     ..exchangeTo = ' Yショップ アクア店',
   ExchangeData()
     ..id = '2'
-    ..name = 'カップ麺'
+    ..name = 'カップめん'
     ..description = '商品の説明2'
-    ..image = 'assets/images/exc_item2.png'
+    ..image = 'assets/images/exc_item2.jpg'
     ..point = 15
     ..exchangeTo = 'Yショップ アクア店',
   ExchangeData()
     ..id = '3'
     ..name = 'パン'
     ..description = '商品の説明3'
-    ..image = 'assets/images/exc_item3.png'
+    ..image = 'assets/images/exc_item3.jpg'
     ..point = 15
     ..exchangeTo = 'Yショップ アクア店',
   ExchangeData()
-    ..id = '4' 
+    ..id = '4'
     ..name = 'お菓子'
     ..description = '商品の説明4'
-    ..image = 'assets/images/exc_item4.png'
+    ..image = 'assets/images/exc_item4.jpg'
     ..point = 20
     ..exchangeTo = 'Yショップ アクア店',
   ExchangeData()

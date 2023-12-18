@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pd_app_new/pages/confirm_page.dart';
 import '../model/exchange_model.dart';
+import 'package:provider/provider.dart';
 
 // 交換商品カード
 class ExchangeItemCard extends StatelessWidget {
@@ -31,10 +33,13 @@ class ExchangeItemCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // 商品画像
-          Image.asset(
-            exchangeData.image,
-            width: 200,
-            height: 200,
+          FittedBox(
+            child: Image.asset(
+              exchangeData.image,
+              width: 200,
+              height: 200,
+              fit: BoxFit.fitHeight,
+            ),
           ),
           Expanded(
             child: Padding(
@@ -44,6 +49,7 @@ class ExchangeItemCard extends StatelessWidget {
                 children: [
                   // 交換店舗名
                   Text(exchangeData.exchangeTo, style: TextStyle(fontSize: 18)),
+                  SizedBox(height: 8),
                   Container(
                     //下線
                     height: 1,
@@ -62,14 +68,22 @@ class ExchangeItemCard extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       // 交換処理を実装、Modalを展開
+                      showGeneralDialog(
+                        context: context,
+                        barrierColor: Colors.black.withOpacity(.3),
+                        barrierDismissible: true,
+                        barrierLabel: 'Close', // アクセシビリティ用のラベル
+                        transitionDuration: Duration(milliseconds: 400),
+                        pageBuilder: (_, __, ___) {
+                          return ConfirmPage();
+                        },
+                      );
                     },
-                    child: Expanded(
-                      child: Text('交換',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          )),
-                    ),
+                    child: Text('交換',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        )),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
