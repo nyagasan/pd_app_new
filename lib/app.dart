@@ -55,7 +55,6 @@ class MyApp extends StatelessWidget {
           '/scaffold_exchange': (context) => ScaffoldExchangePage(),
           '/storehours': (context) => StoreHoursPage(),
           '/settings': (context) => SettingsPage(),
-          '/confirm': (context) => ConfirmModal(),
           '/notification': (context) => NotificationPage(),
         },
       ),

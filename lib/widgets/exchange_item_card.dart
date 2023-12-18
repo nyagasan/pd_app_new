@@ -73,9 +73,8 @@ class ExchangeItemCard extends StatelessWidget {
                         barrierColor: Colors.black.withOpacity(.3),
                         barrierDismissible: true,
                         barrierLabel: 'Close', // アクセシビリティ用のラベル
-                        // transitionDuration: Duration(milliseconds: 200),
                         pageBuilder: (_, __, ___) {
-                          return ConfirmModal();
+                          return ConfirmModal(exchangeData: exchangeData);
                         },
                       );
                     },

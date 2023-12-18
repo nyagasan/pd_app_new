@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import '../model/exchange_model.dart';
 
 //確認ページ
 class ConfirmModal extends StatelessWidget {
+  final ExchangeData exchangeData;
+
+  ConfirmModal({required this.exchangeData});
+  
+
   @override
   Widget build(BuildContext context) {
     // 画面サイズを取得
@@ -21,7 +27,7 @@ class ConfirmModal extends StatelessWidget {
             SizedBox(height: 32),
             FittedBox(
               child: Image.asset(
-                'assets/images/exc_item1.jpg',
+                exchangeData.image,
                 height: 400,
                 width: 400,
                 fit: BoxFit.fitHeight,
@@ -39,7 +45,7 @@ class ConfirmModal extends StatelessWidget {
             )),
             Column(
               children: [
-                Text('商品名', style: TextStyle(fontSize: 24)),
+                Text(exchangeData.name, style: TextStyle(fontSize: 24)),
                 Text('と交換します。', style: TextStyle(fontSize: 20)),
                 Text('\nよろしいですか？', style: TextStyle(fontSize: 20))
               ],
