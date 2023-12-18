@@ -10,6 +10,7 @@ import 'pages/confirm_page.dart';
 import 'pages/splash.dart';
 
 import 'widgets/fun_appbar.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -24,6 +25,14 @@ class MyApp extends StatelessWidget {
         colorScheme:
             ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 60, 147, 169)),
       ),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale("ja", "JP"),
+      ],
       routes: {
         '/': (context) => Splash(),
         '/login': (context) => LoginPage(),
