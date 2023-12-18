@@ -1,13 +1,11 @@
-
 // こんな感じになったらいいなのイメージ
-const USER_SAMPLE_DATA = {
-  "id": "11111-1111-1111-1111",
-  "name": "John Flower",
-  "email": "sazae@sazae.com",
-  "password": "password",
-  "point": "5",
-  "rank": "1",
-  "created_at": "2021-07-01 00:00:00",
-  "updated_at": "2021-07-01 00:00:00"
-};
+class User {
+  late String id;
+  late String name;
+  late String email;
+  late String password;
+  late int point;
+  late int rank;
 
+  User({required this.id, this.point = 0});
+}
