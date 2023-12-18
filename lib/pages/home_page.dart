@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../model/user_model.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Providerを使用してユーザーデータにアクセス
+    final user = Provider.of<User>(context);
+    
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
