@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../widgets/red_appbar.dart';
 import 'confirm_page.dart';
 
+bool canExchange = false;
+
 // Scaffold交換ページ
 class ScaffoldExchangePage extends StatelessWidget {
   @override
@@ -132,7 +134,15 @@ class ScaffoldExchangePage extends StatelessWidget {
                               style: TextStyle(fontSize: 20)),
                           SizedBox(height: 16),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: canExchange
+                                ? () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ConfirmPage()),
+                                    );
+                                  }
+                                : null,
                             child: Text('交換',
                                 style: TextStyle(
                                   color: Colors.white,
