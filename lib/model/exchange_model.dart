@@ -1,6 +1,8 @@
 import './user_model.dart';
 
 class ExchangeData {
+  // 商品ID
+  late String id;
   // 商品名
   late String name;
   // 商品の説明
@@ -29,33 +31,38 @@ class ExchangeData {
 // 交換商品のリストを定義
 List<ExchangeData> exchangeDataList = [
   ExchangeData()
+    ..id = '1'
     ..name = 'アイスクリーム'
     ..description = 'アイスクリーム'
-    ..image = 'assets/images/1.png'
+    ..image = 'assets/images/exc_item1.png'
     ..point = 10
     ..exchangeTo = ' Yショップ アクア店',
   ExchangeData()
+    ..id = '2'
     ..name = 'カップ麺'
     ..description = '商品の説明2'
-    ..image = 'assets/images/2.png'
+    ..image = 'assets/images/exc_item2.png'
     ..point = 15
     ..exchangeTo = 'Yショップ アクア店',
   ExchangeData()
+    ..id = '3'
     ..name = 'パン'
     ..description = '商品の説明3'
-    ..image = 'assets/images/3.png'
+    ..image = 'assets/images/exc_item3.png'
     ..point = 15
     ..exchangeTo = 'Yショップ アクア店',
   ExchangeData()
+    ..id = '4' 
     ..name = 'お菓子'
     ..description = '商品の説明4'
-    ..image = 'assets/images/4.png'
+    ..image = 'assets/images/exc_item4.png'
     ..point = 20
     ..exchangeTo = 'Yショップ アクア店',
   ExchangeData()
+    ..id = '5'
     ..name = 'KITランチ'
     ..description = '商品の説明4'
-    ..image = 'assets/images/4.png'
+    ..image = 'assets/images/exc_item5.png'
     ..point = 20
     ..exchangeTo = 'ガクショク ラテラ',
 ];
