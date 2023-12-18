@@ -1,6 +1,11 @@
+// パッケージのインポート
 import 'package:flutter/material.dart';
-import 'package:pd_app_new/pages/notification_page.dart';
-import 'package:pd_app_new/pages/scaffold_exchange_page.dart';
+import 'package:provider/provider.dart';
+// モデルのインポート
+import 'model/user_model.dart';
+// ページ系のインポート
+import 'pages/notification_page.dart';
+import '/pages/scaffold_exchange_page.dart';
 import 'pages/login_page.dart';
 import 'pages/home_page.dart';
 import 'pages/store_hours_page.dart';
@@ -8,7 +13,7 @@ import 'pages/settings_page.dart';
 import 'pages/exchange_page.dart';
 import 'pages/confirm_page.dart';
 import 'pages/splash.dart';
-
+// Widget系のインポート
 import 'widgets/fun_appbar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -17,33 +22,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'ふぁんカードApp',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 60, 147, 169)),
+    return ChangeNotifierProvider(
+      create: (context) => User(
+        id: '1',
+        name: 'たけし',
+        email: 'takeshi@example.com',
+        password: 'password',
+        point: 2,
+        rank: 1,
       ),
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale("ja", "JP"),
-      ],
-      routes: {
-        '/': (context) => Splash(),
-        '/login': (context) => LoginPage(),
-        '/home': (context) => MyHomePage(),
-        '/exchange': (context) => ExchangePage(),
-        '/scaffold_exchange': (context) => ScaffoldExchangePage(),
-        '/storehours': (context) => StoreHoursPage(),
-        '/settings': (context) => SettingsPage(),
-        '/confirm': (context) => ConfirmPage(),
-        '/notification': (context) => NotificationPage(),
-      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'ふぁんカードApp',
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Color.fromARGB(255, 60, 147, 169)),
+        ),
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale("ja", "JP"),
+        ],
+        routes: {
+          '/': (context) => Splash(),
+          '/login': (context) => LoginPage(),
+          '/home': (context) => MyHomePage(),
+          '/exchange': (context) => ExchangePage(),
+          '/scaffold_exchange': (context) => ScaffoldExchangePage(),
+          '/storehours': (context) => StoreHoursPage(),
+          '/settings': (context) => SettingsPage(),
+          '/confirm': (context) => ConfirmPage(),
+          '/notification': (context) => NotificationPage(),
+        },
+      ),
     );
   }
 }

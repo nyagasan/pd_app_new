@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Providerを使用してユーザーデータにアクセス
     final user = Provider.of<User>(context);
-    
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                         // ToDo：ここにポイント数を表示する
                         // 仮で5を表示
                         Text(
-                          '5',
+                          '${user.point}',
                           style: TextStyle(
                             fontSize: 120,
                             fontWeight: FontWeight.bold,
@@ -114,8 +114,12 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Spacer(),
+          // ポイント付与ボタン
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              // ポイント付与
+              user.addPoint();
+            },
             child: Text('ポイント付与',
                 style: TextStyle(
                   color: Colors.white,
