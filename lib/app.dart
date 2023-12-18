@@ -11,7 +11,7 @@ import 'pages/home_page.dart';
 import 'pages/store_hours_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/exchange_page.dart';
-import 'pages/confirm_page.dart';
+import 'widgets/confirm_modal.dart';
 import 'pages/splash.dart';
 // Widget系のインポート
 import 'widgets/fun_appbar.dart';
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
           '/scaffold_exchange': (context) => ScaffoldExchangePage(),
           '/storehours': (context) => StoreHoursPage(),
           '/settings': (context) => SettingsPage(),
-          '/confirm': (context) => ConfirmPage(),
+          '/confirm': (context) => ConfirmModal(),
           '/notification': (context) => NotificationPage(),
         },
       ),

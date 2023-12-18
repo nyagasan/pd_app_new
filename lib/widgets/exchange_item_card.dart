@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pd_app_new/pages/confirm_page.dart';
+import 'package:pd_app_new/widgets/confirm_modal.dart';
 import '../model/exchange_model.dart';
 import 'package:provider/provider.dart';
 
@@ -73,9 +73,9 @@ class ExchangeItemCard extends StatelessWidget {
                         barrierColor: Colors.black.withOpacity(.3),
                         barrierDismissible: true,
                         barrierLabel: 'Close', // アクセシビリティ用のラベル
-                        transitionDuration: Duration(milliseconds: 400),
+                        // transitionDuration: Duration(milliseconds: 200),
                         pageBuilder: (_, __, ___) {
-                          return ConfirmPage();
+                          return ConfirmModal();
                         },
                       );
                     },

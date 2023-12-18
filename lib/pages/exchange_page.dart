@@ -11,7 +11,12 @@ class ExchangePage extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: EdgeInsets.all(8),
-          child: ExchangeItemCard(exchangeData: exchangeDataList[index]),
+          child: Column(
+            children: [
+              SizedBox(height: 12),
+              ExchangeItemCard(exchangeData: exchangeDataList[index]),
+            ],
+          ),
         );
       },
     );
