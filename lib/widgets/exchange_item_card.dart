@@ -28,6 +28,7 @@ class ExchangeItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     final user = Provider.of<User>(context);
     final userPoints = user.point;
 
@@ -56,7 +57,7 @@ class ExchangeItemCard extends StatelessWidget {
           FittedBox(
             child: Image.asset(
               exchangeData.image,
-              width: 200,
+              width: size.width * 0.4,
               height: 200,
               fit: BoxFit.fitHeight,
             ),
@@ -105,7 +106,8 @@ class ExchangeItemCard extends StatelessWidget {
                               barrierLabel: 'Close', // アクセシビリティ用のラベル
                               pageBuilder: (_, __, ___) {
                                 return ConfirmModal(
-                                    exchangeData: exchangeData,);
+                                  exchangeData: exchangeData,
+                                );
                               },
                             );
                           }

@@ -154,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     selectedItemColor: Colors.black, // 選択されたアイコンの色
                     unselectedItemColor:
                         Colors.black.withOpacity(0.5), // 選択されていないアイコンの色
-                    iconSize: 40.0, //アイコンサイズの調整
+                    iconSize: 32.0, //アイコンサイズの調整
                   ),
                 ),
               ],
