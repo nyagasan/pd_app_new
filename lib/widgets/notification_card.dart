@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pd_app_new/model/notification_model.dart';
+import 'package:intl/intl.dart';
+
 
 class NotificationCard extends StatelessWidget {
+  final NotificationModel notification;
+
+  NotificationCard({required this.notification});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,7 +36,7 @@ class NotificationCard extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '2023 10/02',
+                    DateFormat('yyyy MM/dd').format(notification.date),
                     style: TextStyle(
                       color: Color(0xFF444444),
                     ),
@@ -45,7 +52,7 @@ class NotificationCard extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'LA TERRA',
+                      notification.storeName,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
@@ -55,7 +62,7 @@ class NotificationCard extends StatelessWidget {
                 ],
               ),
               Text(
-                'KITランチの価格改定',
+                notification.title,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -65,7 +72,7 @@ class NotificationCard extends StatelessWidget {
               Text(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                '10/2より、商品価格の改定を行います。ああああああああああああああああああああああああああああああああ',
+                notification.content,
                 style: TextStyle(
                   color: Color(0xFF444444),
                   fontSize: 16,
