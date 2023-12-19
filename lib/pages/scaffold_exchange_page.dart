@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pd_app_new/pages/exchange_page.dart';
 import '../widgets/red_appbar.dart';
-import '../widgets/confirm_modal.dart';
 
 bool canExchange = false;
 
