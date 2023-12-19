@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         name: 'たけし',
         email: 'takeshi@example.com',
         password: 'password',
-        point: 2,
+        point: 10,
         rank: 1,
       ),
       child: MaterialApp(
