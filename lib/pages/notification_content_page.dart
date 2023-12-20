@@ -1,43 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:pd_app_new/model/notification_model.dart';
 import 'package:intl/intl.dart';
-import '../pages/notification_content_page.dart';
+import '../widgets/red_appbar.dart';
 
-class NotificationCard extends StatelessWidget {
+class NotificationContentPage extends StatelessWidget {
   final NotificationData notification;
 
-  NotificationCard({required this.notification});
+  NotificationContentPage({required this.notification});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                NotificationContentPage(notification: notification),
-          ),
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+    return Scaffold(
+      appBar: RedAppBar(notification.title),
+      body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 255, 255, 255),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white,
-                offset: Offset(-5, -5),
-                blurRadius: 15,
-              ),
-              BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                offset: Offset(5, 5),
-                blurRadius: 15,
-              ),
-            ],
-          ),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -49,6 +25,7 @@ class NotificationCard extends StatelessWidget {
                       DateFormat('yyyy MM/dd').format(notification.date),
                       style: TextStyle(
                         color: Color(0xFF444444),
+                        fontSize: 16,
                       ),
                     ),
                     SizedBox(width: 10),
@@ -64,28 +41,27 @@ class NotificationCard extends StatelessWidget {
                       child: Text(
                         notification.storeName,
                         style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
                       ),
                     )
                   ],
                 ),
+                SizedBox(height: 10),
                 Text(
                   notification.title,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 18,
+                    fontSize: 20,
                   ),
                 ),
-                SizedBox(height: 4),
+                SizedBox(height: 8),
                 Text(
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   notification.content,
                   style: TextStyle(
                     color: Color(0xFF444444),
-                    fontSize: 16,
+                    fontSize: 18,
                   ),
                 )
               ],
