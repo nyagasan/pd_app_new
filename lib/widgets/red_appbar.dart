@@ -39,7 +39,7 @@ class RedAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.white,
           ),
           onPressed: () {
-            Navigator.popAndPushNamed(context, '/home');
+            Navigator.of(context).pop();
           },
         ),
       ),
