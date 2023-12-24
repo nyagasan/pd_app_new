@@ -5,7 +5,6 @@ import '../model/store_model.dart';
 
 class StoreCard extends StatelessWidget {
   // final StoreData storeData;
-  
 
   // StoreCard ({required this.storeData});
 
@@ -125,7 +124,7 @@ class StoreCard extends StatelessWidget {
                 child: Container(
                   width: 10,
                   height: 150,
-                  color: Color.fromARGB(255, 210, 15, 1),
+                  color: Color.fromARGB(255, 120, 120, 120),
                 ),
               ),
               Padding(
@@ -135,19 +134,19 @@ class StoreCard extends StatelessWidget {
                     Icon(
                       Icons.restaurant,
                       size: 50,
-                      color: Color.fromARGB(255, 210, 15, 1),
+                      color: Color.fromARGB(255, 120, 120, 120),
                     ),
                     SizedBox(height: 10),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: ShapeDecoration(
-                        color: Color(0xFFD32F2F),
+                        color: Color.fromARGB(255, 102, 102, 102),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100),
                         ),
                       ),
                       child: Text(
-                        '営業中',
+                        '準備中',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
