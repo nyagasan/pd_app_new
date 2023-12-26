@@ -14,66 +14,71 @@ class HomePage extends StatelessWidget {
         children: [
           // 円形ポイント表示
           Spacer(),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                width: 400,
-                height: 390,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color.fromARGB(143, 11, 145, 255),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/rank');
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: 400,
+                  height: 390,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(143, 11, 145, 255),
+                  ),
                 ),
-              ),
-              Container(
-                width: 350,
-                height: 320,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color.fromARGB(99, 253, 253, 253),
-                ),
-                child: Center(
-                  child: Container(
-                    width: 350,
-                    height: 320,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'point',
-                          style: TextStyle(
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                Container(
+                  width: 350,
+                  height: 320,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(99, 253, 253, 253),
+                  ),
+                  child: Center(
+                    child: Container(
+                      width: 350,
+                      height: 320,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'point',
+                            style: TextStyle(
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
-                        ),
-                        // ToDo：ここにポイント数を表示する
-                        // 仮で5を表示
-                        Text(
-                          '${user.point}',
-                          style: TextStyle(
-                            fontSize: 120,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                          // ToDo：ここにポイント数を表示する
+                          // 仮で5を表示
+                          Text(
+                            '${user.point}',
+                            style: TextStyle(
+                              fontSize: 120,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Rank 1',
-                          style: TextStyle(
-                            fontSize: 40,
-                            color: Colors.blue,
+                          Text(
+                            'Rank 1',
+                            style: TextStyle(
+                              fontSize: 40,
+                              color: Colors.blue,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Spacer(),
           // ご利用可能ポイント
