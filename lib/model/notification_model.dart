@@ -15,9 +15,9 @@ class NotificationData {
 List<NotificationData> notifications = [
   NotificationData(
     date: DateTime(2023, 10, 2),
-    storeName: 'スターバックス 金沢工大店',
-    title: '新作フラペチーノ登場',
-    content: 'サザエ味の新しいフラペチーノが登場しました！',
+    storeName: 'ガクショク LA TERRA',
+    title: '特麺「富山ブラックラーメン」が登場！',
+    content: '富山県の名物ラーメン「富山ブラックラーメン」が登場！圧倒的濃厚な醤油スープに、特製の麺が絡み合う！',
   ),
   NotificationData(
     date: DateTime(2023, 10, 2),
