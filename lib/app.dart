@@ -11,7 +11,6 @@ import 'pages/home_page.dart';
 import 'pages/store_hours_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/exchange_page.dart';
-import 'widgets/confirm_modal.dart';
 import 'pages/splash.dart';
 import 'pages/rank_page.dart';
 
@@ -60,7 +59,7 @@ class MyApp extends StatelessWidget {
           '/settings': (context) => SettingsPage(),
           '/notification': (context) => NotificationPage(),
           '/success': (context) => SuccessModal(),
-          '/rank' : (context) => RankViewPage(),
+          '/rank': (context) => RankViewPage(),
         },
       ),
     );
