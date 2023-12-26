@@ -13,6 +13,7 @@ import 'pages/settings_page.dart';
 import 'pages/exchange_page.dart';
 import 'widgets/confirm_modal.dart';
 import 'pages/splash.dart';
+import 'pages/rank_page.dart';
 
 // Widget系のインポート
 import 'widgets/fun_appbar.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
           '/settings': (context) => SettingsPage(),
           '/notification': (context) => NotificationPage(),
           '/success': (context) => SuccessModal(),
+          '/rank' : (context) => RankViewPage(),
         },
       ),
     );
