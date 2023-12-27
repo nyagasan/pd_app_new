@@ -173,7 +173,7 @@ class SettingsPage extends StatelessWidget {
                     SizedBox(height: 3),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, '/');
+                        Navigator.pushReplacementNamed(context, '/');
                       },
                       child: Container(
                         // 5つ目のコンテナ
