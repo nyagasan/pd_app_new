@@ -1,7 +1,4 @@
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
-import '../model/store_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StoreCard extends StatelessWidget {
